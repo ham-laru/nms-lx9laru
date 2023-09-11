@@ -1,0 +1,11 @@
+keys:
+  - &server_nms_lx9laru age1xgpselcztnznrhudj5xx6jltcyl5m3zenwr6xaasrhgy62dztgwq60x8aj
+  - &admin_sgrimee age1rn7gsv9e2dwhjt20p5gsnydrnqyu5c339gku2h9agq8kamqynqqs8v4m7u
+  - &admin_sgrimee_local age1smm4lzse0rak3aklxmr0k8k2qnlsea0nrgje0ltvmn2kjgu4fe2s0wk7n9
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+        - *admin_sgrimee
+        - *admin_sgrimee_local
+        - *server_nms_lx9laru
