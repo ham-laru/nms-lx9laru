@@ -1,8 +1,8 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{ config
+, pkgs
+, ...
+}:
+let
 in {
   imports = [
     ./hardware-configuration.nix
@@ -14,17 +14,17 @@ in {
 
   documentation.enable = false;
 
-  networking.hostName = "nms-lx9laru"; # Define your hostname.
+  networking.hostName = "nms-lx9laru";
+  networking.domain = "ampr.org";
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  time.timeZone = "Europe/Amsterdam";
-
-  users.groups.librenms = {};
+  # time.timeZone = "Europe/Luxembourg";
+  time.timeZone = "UTC";
 
   users.users.sgrimee = {
     isNormalUser = true;
-    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEE+uGPC56PwQR+ZcrcVkTLWZwOY+W56Zy3n+zAABsDr sgrimee@gmail.com	"
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCjP5tQ7GylfZWu6c0jmWoxvsxvurg5qWj5duwWXuiupoVSK0VR0JK2VwLKKns4qvMCV3z4/VopgElrXUFxacVocCSSPsrseAeOB5PpjgubH5EqBoNMitWH5C3F8S+0Ir3mZFuE165N82MCq27ZUZySxpfAgBwC80CRZ3l+4dKp3rOZCmNGm4nZ5F9sO3z1xE4TSbIpwzDOkTPLdsoRsAkw0DG6yZ8CvjG0WcXUhyqFAz/YanQEO6weP6raWFORvn0drJpzDQPxxq18xjM8eUukKe68LGUOvQBEsveQeoraGf8N/sXRVUSZ1hjTQ5s9ehlPagFh4OxLeaA2oZfLb7lkpi+0NByyLIPxDJAXy89m9L0X0mo5VTr6hVgUeZxE/v6UNP+Uj73Kn0Ry6Nnt0c7vwEMKaOF93Ql+/zFcYUWFSgZ0n3Foiyf907rPTYhtW3632cb0HC41PraT5PdWAFPjNZ6XrwHRB3znHl25BCnHEcEYisvQ1eolJjsvI0nDPIk= sgrimee@SGRIMEE-M-J3HG"
@@ -33,21 +33,18 @@ in {
     ];
   };
 
-  users.users.librenms = {
-    isNormalUser = true;
-  };
-
   environment.systemPackages = with pkgs; [
     age
     alejandra
     bat
+    btop
     coreutils-full
     curl
     du-dust
+    gh
     git
     gitui
     helix
-    htop
     inetutils
     joshuto
     killall
@@ -68,20 +65,10 @@ in {
     zip
   ];
 
-  programs.bash.shellAliases = {
-  };
+  programs.bash.shellAliases = { };
+  programs.fzf.fuzzyCompletion = true;
 
-  programs.ssh.pubkeyAcceptedKeyTypes = ["ssh-ed25519" "ssh-rsa"]; # for routeros
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
+  programs.ssh.pubkeyAcceptedKeyTypes = [ "ssh-ed25519" "ssh-rsa" ]; # for routeros
 
   services = {
     avahi = {
@@ -105,6 +92,7 @@ in {
       # https://github.com/NetaliDev/nixpkgs/blob/35a5f1142ad6d4b828e3497a6877c52f9e54bb00/nixos/modules/services/monitoring/librenms.nix
       enable = true;
       database.socket = "/run/mysqld/mysqld.sock";
+      hostname = "44.161.251.5";
     };
 
     mysql = {
@@ -137,7 +125,7 @@ in {
   # };
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 80 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
