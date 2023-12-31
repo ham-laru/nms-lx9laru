@@ -2,18 +2,14 @@
   "nodes": {
     "nixpkgs": {
       "locked": {
-        "lastModified": 1694449383,
-        "narHash": "sha256-MF9yyKYrQwEclZAicrM11BHrXjZRkVpPay/SynCJrX4=",
-        "owner": "ham-laru",
-        "repo": "nixpkgs-NetaliDev",
-        "rev": "e202739f084d3346fb384a8973c8a7ad7815f8c2",
-        "type": "github"
+        "lastModified": 1694534560,
+        "narHash": "sha256-mTn5NdCbYqlz65QKeEjO5KQEsCrZN3/XVgE8s9zcWvA=",
+        "type": "git",
+        "url": "file:/home/sgrimee/nixpkgs-NetaliDev?branch=librenms"
       },
       "original": {
-        "owner": "ham-laru",
-        "ref": "librenms",
-        "repo": "nixpkgs-NetaliDev",
-        "type": "github"
+        "type": "git",
+        "url": "file:/home/sgrimee/nixpkgs-NetaliDev?branch=librenms"
       }
     },
     "nixpkgs-stable": {
@@ -46,11 +42,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1693898833,
-        "narHash": "sha256-OIrMAGNYNeLs6IvBynxcXub7aSW3GEUvWNsb7zx6zuU=",
+        "lastModified": 1694495315,
+        "narHash": "sha256-sZEYXs9T1NVHZSSbMqBEtEm2PGa7dEDcx0ttQkArORc=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "faf21ac162173c2deb54e5fdeed002a9bd6e8623",
+        "rev": "ea208e55f8742fdcc0986b256bdfa8986f5e4415",
         "type": "github"
       },
       "original": {
