@@ -2,23 +2,27 @@
   "nodes": {
     "nixpkgs": {
       "locked": {
-        "lastModified": 1694534560,
-        "narHash": "sha256-mTn5NdCbYqlz65QKeEjO5KQEsCrZN3/XVgE8s9zcWvA=",
-        "type": "git",
-        "url": "file:/home/sgrimee/nixpkgs-NetaliDev?branch=librenms"
+        "lastModified": 1705916986,
+        "narHash": "sha256-iBpfltu6QvN4xMpen6jGGEb6jOqmmVQKUrXdOJ32u8w=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "d7f206b723e42edb09d9d753020a84b3061a79d8",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:/home/sgrimee/nixpkgs-NetaliDev?branch=librenms"
+        "owner": "nixos",
+        "ref": "nixos-23.11",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1693675694,
-        "narHash": "sha256-2pIOyQwGyy2FtFAUIb8YeKVmOCcPOTVphbAvmshudLE=",
+        "lastModified": 1705033721,
+        "narHash": "sha256-K5eJHmL1/kev6WuqyqqbS1cdNnSidIZ3jeqJ7GbrYnQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5601118d39ca9105f8e7b39d4c221d3388c0419d",
+        "rev": "a1982c92d8980a0114372973cbdfe0a307f1bdea",
         "type": "github"
       },
       "original": {
@@ -42,11 +46,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1694495315,
-        "narHash": "sha256-sZEYXs9T1NVHZSSbMqBEtEm2PGa7dEDcx0ttQkArORc=",
+        "lastModified": 1705805983,
+        "narHash": "sha256-HluB9w7l75I4kK25uO4y6baY4fcDm2Rho0WI1DN2Hmc=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "ea208e55f8742fdcc0986b256bdfa8986f5e4415",
+        "rev": "ae171b54e76ced88d506245249609f8c87305752",
         "type": "github"
       },
       "original": {
