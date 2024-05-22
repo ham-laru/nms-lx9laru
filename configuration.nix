@@ -58,7 +58,6 @@ in {
       openssh
       progress
       ripgrep
-      rnix-lsp
       sops
       ssh-to-age
       tree
@@ -98,7 +97,7 @@ in {
     openssh.enable = true;
 
     librenms = {
-      # https://github.com/NixOS/nixpkgs/nixos/modules/services/monitoring/librenms.nix
+      # https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/monitoring/librenms.nix
       enable = false;
       # database.socket = "/run/mysqld/mysqld.sock";
       hostname = "44.161.251.5";
