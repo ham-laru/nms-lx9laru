@@ -119,6 +119,8 @@ in {
       package = pkgs.mariadb;
       settings.mysqld.bind-address = "127.0.0.1";
     };
+
+    vscode-server.enable = true;
   };
 
 

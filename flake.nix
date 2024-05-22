@@ -11,12 +11,14 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
   outputs =
     { self
     , nixpkgs
     , sops-nix
+    , vscode-server
     ,
     }: {
       nixosConfigurations = {
@@ -25,6 +27,7 @@
           modules = [
             ./configuration.nix
             sops-nix.nixosModules.sops
+            vscode-server.nixosModules.default
           ];
         };
       };
