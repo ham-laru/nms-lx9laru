@@ -20,18 +20,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1716218643,
-        "narHash": "sha256-i/E7gzQybvcGAYDRGDl39WL6yVk30Je/NXypBz6/nmM=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "a8695cbd09a7ecf3376bd62c798b9864d20f86ee",
-        "type": "github"
+        "dirtyRev": "2106adbbe786d193c95a4bab589e56c37ab5e00a-dirty",
+        "dirtyShortRev": "2106adbbe786-dirty",
+        "lastModified": 1716458490,
+        "narHash": "sha256-JaOz8JekwvNxSIWXrx+5wDBOrKx/1yZtuPuCdIF1wH0=",
+        "type": "git",
+        "url": "file:/home/sgrimee/nixpkgs?branch=librenms-sock-sql"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-23.11",
-        "repo": "nixpkgs",
-        "type": "github"
+        "type": "git",
+        "url": "file:/home/sgrimee/nixpkgs?branch=librenms-sock-sql"
       }
     },
     "nixpkgs-stable": {
@@ -79,11 +77,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1716244104,
-        "narHash": "sha256-XXbqfkyWe0d0O+zqRQWi2oXi6wYDmTzXedFkBRwx1VI=",
+        "lastModified": 1716400300,
+        "narHash": "sha256-0lMkIk9h3AzOHs1dCL9RXvvN4PM8VBKb+cyGsqOKa4c=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "fddd52460e3332eedd8a0043af5675338a5b3e0b",
+        "rev": "b549832718b8946e875c016a4785d204fcfc2e53",
         "type": "github"
       },
       "original": {

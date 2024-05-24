@@ -9,14 +9,23 @@ in {
     ./modules/oxidized.nix
   ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    kernel.sysctl = {
+      # allow enough file handles for vscode edit of nixpkgs
+      "fs.inotify.max_user_watches" = "1048576";
+    };
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    tmp.cleanOnBoot = true;
+  };
 
   documentation.enable = false;
 
-  networking.hostName = "nms-lx9laru";
-  networking.domain = "ampr.org";
+  networking.hostName = "nms";
+  networking.domain = "lx9laru.ampr.org";
+  networking.search = [ "ampr.org" ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -84,6 +93,12 @@ in {
 
   programs.ssh.pubkeyAcceptedKeyTypes = [ "ssh-ed25519" "ssh-rsa" ]; # for routeros
 
+  # TODO:
+  # - install scripts from the file/ folder
+  # - install check_brandmeister
+  # - merge check_brandmeister into the folder pointed to by config nagios_plugins 
+  # - add LARU menu
+
   services = {
     avahi = {
       enable = true;
@@ -97,10 +112,23 @@ in {
     openssh.enable = true;
 
     librenms = {
-      # https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/services/monitoring/librenms.nix
-      enable = false;
-      # database.socket = "/run/mysqld/mysqld.sock";
-      hostname = "44.161.251.5";
+      # https://github.com/sgrimee/nixpkgs/blob/master/nixos/modules/services/monitoring/librenms.nix
+      #
+      # new install:
+      #   librenms-artisan user:add --role=admin {your_web_username}
+      # 
+      # migration from other server:
+      #   set the APP_KEY in librenms/.env
+      #   sudo mysql -p librenms < librenms-20240523.sql
+      #   reset configs to default so they take the nix store path, e.g.
+      #    config:set rrdtool
+      #    config:set fping
+      #    config:set snmpgetnext
+      #    config:set fping6
+      #    config:set traceroute
+      enable = true;
+      database.socket = "/run/mysqld/mysqld.sock";
+      hostname = "nms.lx9laru.ampr.org";
     };
 
     mysql = {
@@ -123,12 +151,11 @@ in {
     vscode-server.enable = true;
   };
 
-
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 80 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
