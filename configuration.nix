@@ -93,11 +93,10 @@ in {
 
   programs.ssh.pubkeyAcceptedKeyTypes = [ "ssh-ed25519" "ssh-rsa" ]; # for routeros
 
-  # TODO:
-  # - install scripts from the file/ folder
-  # - install check_brandmeister
-  # - merge check_brandmeister into the folder pointed to by config nagios_plugins 
-  # - add LARU menu
+  # TODO: install scripts from the file/ folder, see https://ertt.ca/nix/shell-scripts/
+  # TODO: install check_brandmeister
+  # TODO: merge check_brandmeister into the folder pointed to by config nagios_plugins 
+  # TODO: add LARU menu: resources/views/menu/custom.blade.php
 
   services = {
     avahi = {
