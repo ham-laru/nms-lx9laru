@@ -20,11 +20,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1716908815,
-        "narHash": "sha256-hXIn7uAkePChk/DAthTCcQUqe2G3E6yBTMj5KYEMhVw=",
-        "ref": "refs/heads/librenms-sock-sql",
-        "rev": "e631800d59f6e990af062b4e9102a40e77f7352d",
-        "revCount": 632347,
+        "lastModified": 1716912507,
+        "narHash": "sha256-pU9kZjRMilEcMZc2WX9ga7udoQud0WDOFfy9NLOyPyk=",
+        "ref": "refs/heads/librenms-sql-socket",
+        "rev": "7f0fff4672b354334186bde252f17489bfe9c4f5",
+        "revCount": 632357,
         "type": "git",
         "url": "file:/home/sgrimee/nixpkgs?branch=librenms-sock-sql"
       },
