@@ -1,9 +1,9 @@
 { config
 , pkgs
+, inputs
 , ...
 }:
-let
-in {
+{
   imports = [
     ./hardware-configuration.nix
     ./modules/oxidized.nix
@@ -50,6 +50,7 @@ in {
       alejandra
       bat
       btop
+      inputs.check_brandmeister.packages.x86_64-linux.default
       coreutils-full
       curl
       du-dust
@@ -85,7 +86,7 @@ in {
       lt = "eza --tree";
       nixswitch = "sudo nixos-rebuild switch --flake .#";
       nixup = "nix flake update; nixswitch";
-      path-lines = "$'echo $PATH | tr \':\' \'\n\''";
+      path-lines = "echo $PATH | tr ':' '\n'";
     };
   };
 

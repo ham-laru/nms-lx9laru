@@ -12,6 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     vscode-server.url = "github:nix-community/nixos-vscode-server";
+    check_brandmeister.url = "github:sgrimee/check_brandmeister";
   };
 
   outputs =
@@ -19,11 +20,12 @@
     , nixpkgs
     , sops-nix
     , vscode-server
-    ,
-    }: {
+    , check_brandmeister
+    } @ inputs:
+    {
       nixosConfigurations = {
         nms = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          specialArgs.inputs = inputs;
           modules = [
             ./configuration.nix
             sops-nix.nixosModules.sops
