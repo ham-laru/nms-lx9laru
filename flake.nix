@@ -12,21 +12,43 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     vscode-server.url = "github:nix-community/nixos-vscode-server";
-    check_brandmeister.url = "github:sgrimee/check_brandmeister";
+    check-brandmeister.url = "github:sgrimee/check_brandmeister";
   };
 
   outputs =
     { self
+    , check-brandmeister
     , nixpkgs
     , sops-nix
     , vscode-server
-    , check_brandmeister
     } @ inputs:
     {
+      overlays.add-checkbm-package = final: prev: {
+        check-brandmeister = check-brandmeister.packages.x86_64-linux.default;
+      };
+
+      overlays.merge-checkbm-monitoring-plugins = final: prev: {
+        # Add check_brandmeister to the monitoring_plugins
+        monitoring-plugins = prev.monitoring-plugins.overrideAttrs (oldAttrs: {
+          buildInputs = (oldAttrs.buildInputs or [ ]) ++ [ prev.check-brandmeister ];
+          postInstall = (oldAttrs.postInstall or "") + ''
+            echo "Output path is: $out"
+            install -d $out/bin
+            install -m 755 ${prev.check-brandmeister}/bin/check_brandmeister $out/bin/
+          '';
+        });
+      };
+
       nixosConfigurations = {
         nms = nixpkgs.lib.nixosSystem {
           specialArgs.inputs = inputs;
           modules = [
+            {
+              nixpkgs.overlays = [
+                self.overlays.add-checkbm-package
+                self.overlays.merge-checkbm-monitoring-plugins
+              ];
+            }
             ./configuration.nix
             sops-nix.nixosModules.sops
             vscode-server.nixosModules.default

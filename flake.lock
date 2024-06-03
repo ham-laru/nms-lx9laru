@@ -16,7 +16,7 @@
         "type": "github"
       }
     },
-    "check_brandmeister": {
+    "check-brandmeister": {
       "inputs": {
         "advisory-db": "advisory-db",
         "crane": "crane",
@@ -41,7 +41,7 @@
     "crane": {
       "inputs": {
         "nixpkgs": [
-          "check_brandmeister",
+          "check-brandmeister",
           "nixpkgs"
         ]
       },
@@ -62,11 +62,11 @@
     "fenix": {
       "inputs": {
         "nixpkgs": [
-          "check_brandmeister",
+          "check-brandmeister",
           "nixpkgs"
         ],
         "rust-analyzer-src": [
-          "check_brandmeister"
+          "check-brandmeister"
         ]
       },
       "locked": {
@@ -153,11 +153,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1716913884,
-        "narHash": "sha256-BaYxdFdsgnftzktsgiC7hOGytSSQ5320EoFDGgJZ9vI=",
+        "lastModified": 1717404342,
+        "narHash": "sha256-xvkpj6YBlqLzFrCZ0N4w5uIFhsUWrUe29e467bmTocg=",
         "ref": "refs/heads/librenms-sql-socket",
-        "rev": "3e9f7ec37f8a9da58468948c008c171a266ecd08",
-        "revCount": 632358,
+        "rev": "02cd5d280ff5f33e4d8350c0aeb0ddccb970e834",
+        "revCount": 634573,
         "type": "git",
         "url": "file:/home/sgrimee/nixpkgs?branch=librenms-sock-sql"
       },
@@ -182,7 +182,7 @@
     },
     "root": {
       "inputs": {
-        "check_brandmeister": "check_brandmeister",
+        "check-brandmeister": "check-brandmeister",
         "nixpkgs": "nixpkgs_2",
         "sops-nix": "sops-nix",
         "vscode-server": "vscode-server"
