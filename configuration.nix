@@ -50,11 +50,11 @@
       alejandra
       bat
       btop
-      inputs.check_brandmeister.packages.x86_64-linux.default
       coreutils-full
       curl
       du-dust
       eza
+      fd
       gh
       git
       gitui
@@ -95,8 +95,6 @@
   programs.ssh.pubkeyAcceptedKeyTypes = [ "ssh-ed25519" "ssh-rsa" ]; # for routeros
 
   # TODO: install scripts from the file/ folder, see https://ertt.ca/nix/shell-scripts/
-  # TODO: install check_brandmeister
-  # TODO: merge check_brandmeister into the folder pointed to by config nagios_plugins 
   # TODO: add LARU menu: resources/views/menu/custom.blade.php
 
   services = {
