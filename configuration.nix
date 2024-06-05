@@ -23,11 +23,23 @@
 
   documentation.enable = false;
 
-  networking.hostName = "nms";
-  networking.domain = "lx9laru.ampr.org";
-  networking.search = [ "ampr.org" ];
+  networking = {
+    hostName = "nms";
+    domain = "lx9laru.ampr.org";
+    search = [ "ampr.org" ];
+    firewall.allowedTCPPorts = [ 80 ];
+    # firewall.enable = false;
+  };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix =
+    {
+      settings.experimental-features = [ "nix-command" "flakes" ];
+      gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 30d";
+      };
+    };
 
   time.timeZone = "UTC";
 
@@ -90,9 +102,10 @@
     };
   };
 
-  programs.fzf.fuzzyCompletion = true;
-
-  programs.ssh.pubkeyAcceptedKeyTypes = [ "ssh-ed25519" "ssh-rsa" ]; # for routeros
+  programs = {
+    fzf.fuzzyCompletion = true;
+    ssh.pubkeyAcceptedKeyTypes = [ "ssh-ed25519" "ssh-rsa" ]; # for routeros
+  };
 
   # TODO: install scripts from the file/ folder, see https://ertt.ca/nix/shell-scripts/
   # TODO: add LARU menu: resources/views/menu/custom.blade.php
@@ -148,12 +161,6 @@
 
     vscode-server.enable = true;
   };
-
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 80 ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
