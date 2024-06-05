@@ -153,11 +153,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1717404342,
-        "narHash": "sha256-xvkpj6YBlqLzFrCZ0N4w5uIFhsUWrUe29e467bmTocg=",
+        "lastModified": 1717607593,
+        "narHash": "sha256-+oOa9FUXfsyAbd9aO7044JwAyO3axq4lJ90a2aDBVNg=",
         "ref": "refs/heads/librenms-sql-socket",
-        "rev": "02cd5d280ff5f33e4d8350c0aeb0ddccb970e834",
-        "revCount": 634573,
+        "rev": "88c999957d22810993f72dcb05f83824c59fa1ca",
+        "revCount": 635442,
         "type": "git",
         "url": "file:/home/sgrimee/nixpkgs?branch=librenms-sock-sql"
       },
@@ -196,11 +196,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1717297459,
-        "narHash": "sha256-cZC2f68w5UrJ1f+2NWGV9Gx0dEYmxwomWN2B0lx0QRA=",
+        "lastModified": 1717455931,
+        "narHash": "sha256-8Q6mKSsto8gaGczXd4G0lvawdAYLa5Dlh3/g4hl5CaM=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "ab2a43b0d21d1d37d4d5726a892f714eaeb4b075",
+        "rev": "d4555e80d80d2fa77f0a44201ca299f9602492a0",
         "type": "github"
       },
       "original": {
