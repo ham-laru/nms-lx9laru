@@ -88,6 +88,7 @@
       wget
       zellij
       zip
+      inputs.hytera-snmp.packages.${system}.default
     ];
 
     shellAliases = {

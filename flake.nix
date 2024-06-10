@@ -13,6 +13,7 @@
     };
     vscode-server.url = "github:nix-community/nixos-vscode-server";
     check-brandmeister.url = "github:sgrimee/check_brandmeister";
+    hytera-snmp.url = "path:./packages/hytera-snmp";
   };
 
   outputs =
@@ -21,6 +22,7 @@
     , nixpkgs
     , sops-nix
     , vscode-server
+    , hytera-snmp
     } @ inputs:
     {
       overlays.add-checkbm-package = final: prev: {
@@ -57,3 +59,4 @@
       };
     };
 }
+
