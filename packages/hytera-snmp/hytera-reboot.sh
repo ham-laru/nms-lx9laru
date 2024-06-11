@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-# Sends a SNMP command to reboot the hytera repeater remotely
-
 if [ -z "$1" ]; then
+  echo "Send a SNMP command to reboot the hytera repeater remotely."
   echo "Usage: $0 <IP_ADDRESS>"
   echo "Example: $0 192.168.1.1"
   exit 1

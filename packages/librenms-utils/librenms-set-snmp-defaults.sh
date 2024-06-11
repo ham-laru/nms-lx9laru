@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 read -p "Enter the snmp password: " password
 
 librenms-artisan config:set snmp.v3.0 '{

@@ -90,6 +90,7 @@
       zellij
       zip
       inputs.hytera-snmp.packages.${system}.default
+      inputs.librenms-utils.packages.${system}.default
     ];
 
     shellAliases = {
