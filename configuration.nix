@@ -64,6 +64,7 @@
       btop
       coreutils-full
       curl
+      direnv
       du-dust
       eza
       fd
