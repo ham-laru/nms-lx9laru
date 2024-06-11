@@ -48,12 +48,24 @@
         monitoring-plugins = prev.monitoring-plugins.overrideAttrs (oldAttrs: {
           buildInputs = (oldAttrs.buildInputs or [ ]) ++ [ prev.check-brandmeister ];
           postInstall = (oldAttrs.postInstall or "") + ''
-            echo "Output path is: $out"
             install -d $out/bin
             install -m 755 ${prev.check-brandmeister}/bin/check_brandmeister $out/bin/
           '';
         });
       };
+
+      overlays.librenms-add-custom-ui-blade = final: prev:
+        let
+          customBladePath = ./overlays/librenms-add-custom-ui-blade;
+        in
+        {
+          librenms = prev.librenms.overrideAttrs (oldAttrs: {
+            postInstall = (oldAttrs.postInstall or "") + ''
+              install -d $out/resources/views/menu
+              install -m 444 ${customBladePath}/custom.blade.php $out/resources/views/menu/
+            '';
+          });
+        };
 
       nixosConfigurations = {
         nms = nixpkgs.lib.nixosSystem {
@@ -63,6 +75,7 @@
               nixpkgs.overlays = [
                 self.overlays.add-checkbm-package
                 self.overlays.merge-checkbm-monitoring-plugins
+                self.overlays.librenms-add-custom-ui-blade
               ];
             }
             ./configuration.nix
