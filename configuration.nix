@@ -94,8 +94,10 @@
     ];
 
     shellAliases = {
+      be-free = "sudo su --shell /run/current-system/sw/bin/bash librenms";
       gst = "git status";
       laru-ssh = "ssh -llx2sg -oport=15722";
+      list-packages = "nix-store --query --requisites /run/current-system";
       ll = "eza -l";
       lla = "eza -la";
       lt = "eza --tree";
