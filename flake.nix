@@ -45,10 +45,11 @@
           modules = [
             {
               nixpkgs.overlays = [
+                (import ./overlays/librenms/bump-version.nix)
+                (import ./overlays/librenms/add-custom-ui-blade.nix)
                 (import ./overlays/check-brandmeister/add-check-brandmeister-package.nix
                   { inherit check-brandmeister-flake; })
                 (import ./overlays/check-brandmeister/merge-check-brandmeister-monitoring-plugins.nix)
-                (import ./overlays/librenms/add-custom-ui-blade.nix)
               ];
             }
             ./configuration.nix

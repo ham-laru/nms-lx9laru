@@ -21,8 +21,8 @@
           default = packages.librenms-utils;
           librenms-utils = pkgs.symlinkJoin {
             name = "librenms-utils";
-            paths = [ librenms-set-device-links librenms-set-snmp-defaults pkgs.net-snmp ];
-            buildInputs = [ pkgs.makeWrapper ];
+            paths = [ librenms-set-device-links librenms-set-snmp-defaults ];
+            buildInputs = [ pkgs.makeWrapper pkgs.librenms ];
             postBuild = ''
               wrapProgram $out/bin/librenms-set-device-links --prefix PATH: $out/bin
               wrapProgram $out/bin/librenms-set-snmp-defaults --prefix PATH: $out/bin
