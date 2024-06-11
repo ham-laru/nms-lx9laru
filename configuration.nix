@@ -110,9 +110,6 @@
     ssh.pubkeyAcceptedKeyTypes = [ "ssh-ed25519" "ssh-rsa" ]; # for routeros
   };
 
-  # TODO: install scripts from the file/ folder, see https://ertt.ca/nix/shell-scripts/
-  # TODO: add LARU menu: resources/views/menu/custom.blade.php
-
   services = {
     avahi = {
       enable = true;
