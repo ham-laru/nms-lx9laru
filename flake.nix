@@ -15,7 +15,7 @@
       url = "github:nix-community/nixos-vscode-server";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    check-brandmeister = {
+    check-brandmeister-flake = {
       url = "github:sgrimee/check_brandmeister";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -31,7 +31,7 @@
 
   outputs =
     { self
-    , check-brandmeister
+    , check-brandmeister-flake
     , nixpkgs
     , sops-nix
     , vscode-server
@@ -39,43 +39,16 @@
     , librenms-utils
     } @ inputs:
     {
-      overlays.add-checkbm-package = final: prev: {
-        check-brandmeister = check-brandmeister.packages.x86_64-linux.default;
-      };
-
-      overlays.merge-checkbm-monitoring-plugins = final: prev: {
-        # Add check_brandmeister to the monitoring_plugins
-        monitoring-plugins = prev.monitoring-plugins.overrideAttrs (oldAttrs: {
-          buildInputs = (oldAttrs.buildInputs or [ ]) ++ [ prev.check-brandmeister ];
-          postInstall = (oldAttrs.postInstall or "") + ''
-            install -d $out/bin
-            install -m 755 ${prev.check-brandmeister}/bin/check_brandmeister $out/bin/
-          '';
-        });
-      };
-
-      overlays.librenms-add-custom-ui-blade = final: prev:
-        let
-          customBladePath = ./overlays/librenms-add-custom-ui-blade;
-        in
-        {
-          librenms = prev.librenms.overrideAttrs (oldAttrs: {
-            postInstall = (oldAttrs.postInstall or "") + ''
-              install -d $out/resources/views/menu
-              install -m 444 ${customBladePath}/custom.blade.php $out/resources/views/menu/
-            '';
-          });
-        };
-
       nixosConfigurations = {
         nms = nixpkgs.lib.nixosSystem {
           specialArgs.inputs = inputs;
           modules = [
             {
               nixpkgs.overlays = [
-                self.overlays.add-checkbm-package
-                self.overlays.merge-checkbm-monitoring-plugins
-                self.overlays.librenms-add-custom-ui-blade
+                (import ./overlays/check-brandmeister/add-check-brandmeister-package.nix
+                  { inherit check-brandmeister-flake; })
+                (import ./overlays/check-brandmeister/merge-check-brandmeister-monitoring-plugins.nix)
+                (import ./overlays/librenms/add-custom-ui-blade.nix)
               ];
             }
             ./configuration.nix

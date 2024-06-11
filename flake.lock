@@ -16,7 +16,7 @@
         "type": "github"
       }
     },
-    "check-brandmeister": {
+    "check-brandmeister-flake": {
       "inputs": {
         "advisory-db": "advisory-db",
         "crane": "crane",
@@ -43,7 +43,7 @@
     "crane": {
       "inputs": {
         "nixpkgs": [
-          "check-brandmeister",
+          "check-brandmeister-flake",
           "nixpkgs"
         ]
       },
@@ -64,11 +64,11 @@
     "fenix": {
       "inputs": {
         "nixpkgs": [
-          "check-brandmeister",
+          "check-brandmeister-flake",
           "nixpkgs"
         ],
         "rust-analyzer-src": [
-          "check-brandmeister"
+          "check-brandmeister-flake"
         ]
       },
       "locked": {
@@ -226,7 +226,7 @@
     },
     "root": {
       "inputs": {
-        "check-brandmeister": "check-brandmeister",
+        "check-brandmeister-flake": "check-brandmeister-flake",
         "hytera-snmp": "hytera-snmp",
         "librenms-utils": "librenms-utils",
         "nixpkgs": "nixpkgs",
