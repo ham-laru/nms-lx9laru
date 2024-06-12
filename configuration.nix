@@ -6,8 +6,9 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./modules/oxidized.nix
+    ./modules/fonts.nix
     ./modules/librenms.nix
+    ./modules/oxidized.nix
     ./modules/snmpd.nix
   ];
 
@@ -57,6 +58,10 @@
         ];
         shell = pkgs.zsh;
       };
+      librenms = {
+        home = "/var/lib/librenms";
+        shell = pkgs.zsh;
+      };
     };
     groups.sgrimee = { };
   };
@@ -95,7 +100,6 @@
     ];
 
     shellAliases = {
-      be-free = "sudo su --shell /run/current-system/sw/bin/bash librenms";
       gst = "git status";
       laru-ssh = "ssh -llx2sg -oport=15722";
       list-packages = "nix-store --query --requisites /run/current-system";
