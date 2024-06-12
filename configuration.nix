@@ -8,6 +8,7 @@
     ./hardware-configuration.nix
     ./modules/oxidized.nix
     ./modules/librenms.nix
+    ./modules/snmpd.nix
   ];
 
   boot = {
