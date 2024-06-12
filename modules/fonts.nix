@@ -3,12 +3,12 @@
     fontDir.enable = true; # DANGER
     packages = [
       pkgs.meslo-lgs-nf
-      (pkgs.nerdfonts.override {
-        fonts = [
-          "FiraCode"
-          "FiraMono"
-        ];
-      })
+      # (pkgs.nerdfonts.override {
+      #   fonts = [
+      #     "FiraCode"
+      #     "FiraMono"
+      #   ];
+      # })
     ];
   };
 }

@@ -10,6 +10,7 @@
     ./modules/librenms.nix
     ./modules/oxidized.nix
     ./modules/snmpd.nix
+    ./modules/starship.nix
   ];
 
   boot = {
@@ -115,7 +116,6 @@
   programs = {
     fzf.fuzzyCompletion = true;
     ssh.pubkeyAcceptedKeyTypes = [ "ssh-ed25519" "ssh-rsa" ]; # for routeros
-    starship.enable = true;
     zsh = {
       enable = true;
       histSize = 10000;
