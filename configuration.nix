@@ -63,7 +63,6 @@
 
   environment = {
     systemPackages = with pkgs; [
-      age
       alejandra
       bat
       btop
@@ -86,8 +85,6 @@
       openssh
       progress
       ripgrep
-      sops
-      ssh-to-age
       tree
       trippy
       unzip
