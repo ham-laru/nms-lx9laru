@@ -195,11 +195,10 @@
     },
     "nixpkgs": {
       "locked": {
+        "dirtyRev": "812dfbb80452e39d9d2c6995365bba206e04fb86-dirty",
+        "dirtyShortRev": "812dfbb80452-dirty",
         "lastModified": 1719214531,
-        "narHash": "sha256-+Ad50UMhdCUn8669OEpcLAmB2v8LSExNXUrcd2CLNps=",
-        "ref": "refs/heads/librenms-sql-socket",
-        "rev": "812dfbb80452e39d9d2c6995365bba206e04fb86",
-        "revCount": 643064,
+        "narHash": "sha256-9+G7FvDTg8c3X3uKgVFm6mXskQJKJ2ipZix+LTzzWEg=",
         "type": "git",
         "url": "file:/home/sgrimee/nixpkgs?branch=librenms-sock-sql"
       },
