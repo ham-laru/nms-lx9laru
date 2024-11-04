@@ -3,9 +3,8 @@
 
   inputs = {
     nixpkgs = {
-      # url = "github:NixOS/nixpkgs/nixos-unstable";
+      url = "github:NixOS/nixpkgs/nixos-unstable-small";
       # url = "github:nixos/nixpkgs/nixos-23.11";
-      url = "git+file:/home/sgrimee/nixpkgs?branch=librenms-sock-sql";
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
