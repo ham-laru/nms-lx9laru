@@ -24,7 +24,7 @@
           default = packages.librenms-utils;
           librenms-utils = pkgs.symlinkJoin {
             name = "librenms-utils";
-            paths = [ librenms-set-device-links librenms-set-snmp-defaults ];
+            paths = [ librenms-backup-mysql librenms-set-device-links librenms-set-snmp-defaults ];
             buildInputs = [ pkgs.makeWrapper pkgs.librenms ];
             postBuild = ''
               wrapProgram $out/bin/librenms-set-device-links --prefix PATH: $out/bin
