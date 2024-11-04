@@ -45,6 +45,8 @@
       };
     };
 
+  nixpkgs.config.allowUnfree = true;
+
   time.timeZone = "UTC";
 
   users = {
@@ -78,6 +80,7 @@
       du-dust
       eza
       fd
+      fzf
       gh
       git
       gitui
@@ -93,10 +96,12 @@
       ripgrep
       tree
       trippy
+      unrar
       unzip
       wget
       zellij
       zip
+      zoxide
       inputs.hytera-snmp.packages.${system}.default
     ];
 
@@ -116,6 +121,7 @@
   programs = {
     fzf.fuzzyCompletion = true;
     ssh.pubkeyAcceptedKeyTypes = [ "ssh-ed25519" "ssh-rsa" ]; # for routeros
+    yazi.enable = true;
     zsh = {
       enable = true;
       histSize = 10000;
