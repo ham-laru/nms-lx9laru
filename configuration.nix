@@ -6,6 +6,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./modules/dnsmasq.nix
     ./modules/fonts.nix
     ./modules/librenms.nix
     ./modules/oxidized.nix
