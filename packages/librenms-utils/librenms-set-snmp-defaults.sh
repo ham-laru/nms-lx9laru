@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+echo "This will set the default SNMP settings for librenms."
 read -p "Enter the snmp password: " password
 
 librenms-artisan config:set snmp.v3.0 '{

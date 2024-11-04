@@ -15,6 +15,9 @@
         librenms-set-snmp-defaults = (pkgs.writeScriptBin "librenms-set-snmp-defaults" (builtins.readFile ./librenms-set-snmp-defaults.sh)).overrideAttrs (old: {
           buildCommand = "${old.buildCommand}\n patchShebangs $out";
         });
+        librenms-backup-mysql = (pkgs.writeScriptBin "librenms-backup-mysql" (builtins.readFile ./librenms-backup-mysql.sh)).overrideAttrs (old: {
+          buildCommand = "${old.buildCommand}\n patchShebangs $out";
+        });
       in
       rec {
         packages = rec {
@@ -26,6 +29,7 @@
             postBuild = ''
               wrapProgram $out/bin/librenms-set-device-links --prefix PATH: $out/bin
               wrapProgram $out/bin/librenms-set-snmp-defaults --prefix PATH: $out/bin
+              wrapProgram $out/bin/librenms-backup-mysql --prefix PATH: $out/bin
             '';
           };
         };
