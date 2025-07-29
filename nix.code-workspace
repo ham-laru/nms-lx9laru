@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "nix"
+		},
+		{
+			"path": "nixpkgs"
+		}
+	],
+	"settings": {
+		"editor.fontFamily": "MesloLGS NF"
+	}
+}
