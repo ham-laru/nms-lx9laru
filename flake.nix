@@ -3,7 +3,8 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable-small";
+      # url = "github:NixOS/nixpkgs/nixos-unstable-small";
+      url = "path:/home/sgrimee/nixpkgs";
       # url = "github:nixos/nixpkgs/nixos-23.11";
     };
     sops-nix = {
