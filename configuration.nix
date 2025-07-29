@@ -88,11 +88,14 @@
       helix
       inetutils
       joshuto
+      jq
       killall
       less
       neofetch
       nixpkgs-fmt
+      nushell
       openssh
+      php82
       progress
       ripgrep
       tree
@@ -102,9 +105,14 @@
       wget
       zellij
       zip
-      zoxide
       inputs.hytera-snmp.packages.${system}.default
     ];
+
+    pathsToLink = [ "/etc/profile.d" ];
+
+    etc."profile.d/php.sh".text = ''
+      export PATH=${pkgs.php82}/bin:$PATH
+    '';
 
     shellAliases = {
       gst = "git status";
