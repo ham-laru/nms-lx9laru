@@ -21,7 +21,7 @@
       #    config:set traceroute
       enable = true;
       database.socket = "/run/mysqld/mysqld.sock";
-      hostname = "nms.lx9laru.ampr.org";
+      hostname = "nms.lx9laru.hamnet.radio";
     };
 
     mysql = {

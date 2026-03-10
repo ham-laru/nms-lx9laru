@@ -30,8 +30,8 @@
 
   networking = {
     hostName = "nms";
-    domain = "lx9laru.ampr.org";
-    search = [ "ampr.org" ];
+    domain = "lx9laru.hamnet.radio";
+    search = [ "hamnet.radio" ];
     firewall.allowedTCPPorts = [ 80 ];
     # firewall.enable = false;
   };
