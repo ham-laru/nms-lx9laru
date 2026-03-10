@@ -4,8 +4,8 @@
   inputs = {
     nixpkgs = {
       # url = "github:NixOS/nixpkgs/nixos-unstable-small";
-      url = "path:/home/sgrimee/nixpkgs";
-      # url = "github:nixos/nixpkgs/nixos-23.11";
+      # url = "path:/home/sgrimee/nixpkgs";
+      url = "github:nixos/nixpkgs/nixos-25.11";
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -45,7 +45,7 @@
           modules = [
             {
               nixpkgs.overlays = [
-                (import ./overlays/librenms/bump-version.nix)
+                # (import ./overlays/librenms/bump-version.nix)
                 (import ./overlays/librenms/add-custom-ui-blade.nix)
                 (import ./overlays/check-brandmeister/add-check-brandmeister-package.nix
                   { inherit check-brandmeister-flake; })
@@ -60,4 +60,5 @@
       };
     };
 }
+
 

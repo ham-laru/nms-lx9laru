@@ -78,7 +78,7 @@
       coreutils-full
       curl
       direnv
-      du-dust
+      dust
       eza
       fd
       fzf
