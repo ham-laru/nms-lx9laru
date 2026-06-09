@@ -75,6 +75,7 @@
       alejandra
       bat
       btop
+      claude-code
       coreutils-full
       curl
       direnv
