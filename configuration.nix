@@ -92,7 +92,7 @@
       jq
       killall
       less
-      neofetch
+      fastfetch
       nixpkgs-fmt
       nushell
       openssh
@@ -106,7 +106,7 @@
       wget
       zellij
       zip
-      inputs.hytera-snmp.packages.${system}.default
+      inputs.hytera-snmp.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 
     pathsToLink = [ "/etc/profile.d" ];

@@ -5,7 +5,7 @@
     nixpkgs = {
       # url = "github:NixOS/nixpkgs/nixos-unstable-small";
       # url = "path:/home/sgrimee/nixpkgs";
-      url = "github:nixos/nixpkgs/nixos-25.11";
+      url = "github:nixos/nixpkgs/nixos-26.05";
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";

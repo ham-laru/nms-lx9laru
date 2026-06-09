@@ -44,7 +44,7 @@
 
   environment = {
     systemPackages = with pkgs; [
-      inputs.librenms-utils.packages.${system}.default
+      inputs.librenms-utils.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 }
