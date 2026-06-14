@@ -12,6 +12,7 @@
     ./modules/oxidized.nix
     ./modules/snmpd.nix
     ./modules/starship.nix
+    ./modules/tailscale.nix
   ];
 
   boot = {
