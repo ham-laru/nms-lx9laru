@@ -87,6 +87,7 @@
       gh
       git
       gitui
+      glow
       helix
       inetutils
       joshuto
