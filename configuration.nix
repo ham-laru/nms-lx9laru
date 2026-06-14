@@ -90,6 +90,7 @@
       inetutils
       joshuto
       jq
+      just
       killall
       less
       fastfetch
