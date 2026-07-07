@@ -80,6 +80,7 @@
       coreutils-full
       curl
       direnv
+      dnsutils # dig, nslookup for DNS troubleshooting
       dust
       eza
       fd
