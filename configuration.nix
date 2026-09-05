@@ -13,6 +13,7 @@
     ./modules/snmpd.nix
     ./modules/starship.nix
     ./modules/tailscale.nix
+    ./modules/tls.nix
   ];
 
   boot = {
@@ -33,7 +34,10 @@
     hostName = "nms";
     domain = "lx9laru.hamnet.radio";
     search = [ "hamnet.radio" ];
-    firewall.allowedTCPPorts = [ 80 ];
+    firewall.allowedTCPPorts = [ 80 443 ];
+    # Reject rather than drop, so a browser that upgrades to a port we do not
+    # serve fails immediately instead of hanging on a TCP timeout.
+    firewall.rejectPackets = true;
     # firewall.enable = false;
   };
 
