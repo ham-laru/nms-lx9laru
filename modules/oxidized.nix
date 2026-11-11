@@ -36,6 +36,14 @@ in
     oxidized_github_deploy_key = {
       owner = config.users.users.oxidized.name;
     };
+    # ed25519 key oxidized logs in to the routers with. The matching public
+    # key is declared for the `oxidized` user in laru-ansible group_vars/all
+    # (ham-laru/laru-ansible#158).
+    oxidized_ssh_key = {
+      owner = config.users.users.oxidized.name;
+      mode = "0400";
+      restartUnits = [ "oxidized.service" ];
+    };
   };
 
   sops.templates."oxidized_with_secrets.yaml" =
@@ -57,7 +65,7 @@ in
         next_adds_job: false
         vars:
           remove_secret: true
-          ssh_keys: "/var/lib/oxidized/.ssh/id_rsa"
+          ssh_keys: "${config.sops.secrets.oxidized_ssh_key.path}"
         groups:
           routeros:
             vars:
@@ -96,6 +104,9 @@ in
       '';
 
       owner = config.users.users.oxidized.name;
+      # The rendered path never changes, so the unit itself does not change
+      # when only the config does; restart explicitly.
+      restartUnits = [ "oxidized.service" ];
     };
 
   services.oxidized = {
